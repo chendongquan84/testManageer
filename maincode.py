@@ -30,7 +30,7 @@ class index:
             iosDwonpath = '/'.join([iosFileDir,'new',newIosName])
         except:
             iosDwonpath = None
-        return render.index(newAndroidName,newIosName,downUrl,apkDwonpath,iosDwonpath)
+        return render.index_download(newAndroidName,newIosName,downUrl,apkDwonpath,iosDwonpath)
     def POST(self):
         data = web.data()
         logging.info(data)
