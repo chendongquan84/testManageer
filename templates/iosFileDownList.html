@@ -1,0 +1,17 @@
+$def with (fileDir,files,downUrl)
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<meta http-equiv="Content-Language" content="zh-CN" />
+	<style type="text/css">
+		body{text-align:center;}
+		div{width:778px;margin:0 auto;text-align:left;}
+	</style>
+</head>
+<body>
+$for file in files:
+	<p>$:file&nbsp;&nbsp; <a href="$fileDir/$file"> 下载</a>&nbsp; <a href="http://testinterface.rrkd.cn:8100/makeQR?data=$downUrl/$fileDir/$file"> 二维码</a></p>
+	
+	<a href='itms-services://?action=download-manifest&url=http://222.177.4.242/ios/d.plist'>一键安装掌上综调iPhone版</a>
+</body>
+</body>

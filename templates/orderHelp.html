@@ -1,0 +1,77 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<script type="text/javascript">
+function loadXMLDoc(send_user,send_pwd,courier,courier_pwd,str,goods_num)
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    }
+  }
+  
+xmlhttp.open("GET","/tools/order?send_user=" + str + '&send_pwd=' + send_pwd + '&courier=' + courier + '&courier_pwd=' + courier_pwd + '&src=' + src + '&goods_num=' + goods_num,true);
+xmlhttp.send();
+}
+
+function doEncode() {
+	var send_user = document.getElementById('send_user').value;
+	var send_pwd = document.getElementById('send_pwd').value;
+	var courier = document.getElementById('courier_uer').value;
+	var courier_pwd = document.getElementById('courier_pwd').value;
+	var src = document.getElementById('src').value;
+	var goods_num = document.getElementById('goods_num').value;
+	loadXMLDoc(send_user,send_pwd,courier,courier_pwd,src,goods_num);
+}
+</script>
+</head>
+<body>
+<center>
+<h3>订单帮助页面</h3>
+<form id="form1" action="" method="post" name="form1">
+<p>
+发货人手机号码：
+<input id="send_user" class="input2 fl" type="text" placeholder="请输入11位手机号码" maxlength="11" name="send_user" onkeyup="this.value=this.value.replace(/\D/gi,'')">
+发货密码：
+<input id="send_pwd" class="input2 fl" type="text" placeholder="发单人密码" maxlength="11" name="send_pwd" onkeyup="this.value=this.value.replace(/\D/gi,'')">
+快递人手机号码：
+<input id="courier_uer" class="input2 fl" type="text" placeholder="请输入11位手机号码" maxlength="11" name="courier_uer" onkeyup="this.value=this.value.replace(/\D/gi,'')">
+快递人密码：
+<input id="courier_pwd" class="input2 fl" type="text" placeholder="快递员密码" maxlength="11" name="courier_pwd" onkeyup="this.value=this.value.replace(/\D/gi,'')">
+订单编号：
+<input id="goods_num" class="input2 fl" type="text" placeholder="快递员密码" maxlength="11" name="goods_num" onkeyup="this.value=this.value.replace(/\D/gi,'')">
+<p class="medium" align="left" style="width:1000px">
+<strong>发单流程输入说明：</strong>请按顺序填写定单流程，可填写单个操作和组合操作。<br/><strong>注释：</strong>sendOrder--发单；vicinageGrabGoods--快递员抢单；scanningGoods--快递员扫描取件；courierarrivegoods--快递员请求签收；fillSignCode--快递员完成签收； 
+<br/>
+<strong>实例：</strong>sendOrder,vicinageGrabGoods,scanningGoods,courierarrivegoods,fillSignCode
+</p>
+<textarea id="src" style="width:1000px;height:30px;" placeholder="sendOrder,vicinageGrabGoods,scanningGoods,courierarrivegoods,fillSignCode" rows="1" cols="80" name="src"></textarea>
+<p class="tcenter">
+<input class="button" type="button" name="decode" value="确认执行" onclick="doEncode();">
+</p>
+<textarea id="myDiv" style="width:1000px;height:320px;" rows="6" cols="80" name="myDiv"></textarea>
+</form>
+<hr class="hline" width="0" size="1" noshade="noshade">
+<p class="medium" align="left" style="width:600px">
+<strong>-----</strong>
+</p>
+
+</center>
+<br>
+<center>
+<div style="display:none;">
+</body>
+</html>

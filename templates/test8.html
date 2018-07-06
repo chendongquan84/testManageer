@@ -1,0 +1,59 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<script type="text/javascript">
+function loadXMLDoc(str)
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    }
+  }
+  
+xmlhttp.open("GET","/tools/CourierDecrypt?str=" + str,true);
+xmlhttp.send();
+}
+
+function doEncode() {
+	var src = document.getElementById('src').value;
+	loadXMLDoc(src);
+}
+</script>
+</head>
+<body>
+<center>
+<h3>自由人请求解密</h3>
+<form id="form1" action="" method="post" name="form1">
+<p class="medium">
+请输入要进行编码或解码的字符：
+</p>
+<textarea id="src" style="width:1000px;height:220px;" rows="6" cols="80" name="src"></textarea>
+<p class="tcenter">
+<input class="button" type="button" name="decode" value="解码" onclick="doEncode();">
+</p>
+<textarea id="myDiv" style="width:1000px;height:320px;" rows="6" cols="80" name="myDiv"></textarea>
+</form>
+<hr class="hline" width="600" size="1" noshade="noshade">
+<p class="medium" align="left" style="width:600px">
+<strong>说明:请将抓取的数据整包拷贝</strong>
+</p>
+
+</center>
+<br>
+<center>
+<div style="display:none;">
+</body>
+</html>

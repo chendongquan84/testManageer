@@ -1,0 +1,16 @@
+$def with (iosVersion)
+
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<meta http-equiv="Content-Language" content="zh-CN" />
+	<style type="text/css">
+		body{text-align:center;}
+		div{width:778px;margin:0 auto;text-align:left;}
+	</style>
+</head>
+<body>
+<h2>ios客户端下载主页</h2>
+$for version in iosVersion:
+        <p><a href="./ios/ver/$version">ios $:version </a></p>
+</body>
