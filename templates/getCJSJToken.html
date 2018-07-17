@@ -1,0 +1,59 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<script type="text/javascript">
+function loadXMLDoc(phone)
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("outToken").innerHTML=xmlhttp.responseText;
+    }
+  }
+  
+xmlhttp.open("GET","/tools/CJSJ/getToken?phone=" + phone,true);
+xmlhttp.send();
+}
+
+function doEncode() {
+	var src = document.getElementById('phone').value;
+	loadXMLDoc(src);
+}
+</script>
+</head>
+<body>
+<center>
+<h3>获取成交设计app登陆token</h3>
+<form id="form1" action="" method="post" name="form1">
+<p class="medium">
+请输入手机号码：
+</p>
+<textarea id="phone" style="width:300px;height:30px;" rows="6" cols="80" name="phone"></textarea>
+<p class="tcenter">
+<input class="button" type="button" name="decode" value="获取token" onclick="doEncode();">
+</p>
+<textarea id="outToken" style="width:300px;height:30px;" rows="6" cols="80" name="outToken"></textarea>
+</form>
+<hr class="hline" width="300" size="1" noshade="noshade">
+<p class="medium" align="left" style="width:300px">
+<strong>说明:输入手机号码后点击获取</strong>
+</p>
+
+</center>
+<br>
+<center>
+<div style="display:none;">
+</body>
+</html>

@@ -22,20 +22,18 @@ $def with (newAndroidName,newIosName,downUrl,apkDwonpath,iosDwonpath)
 <h2>最新客户端</h2>
 <h3>new android</h3>
 $if newAndroidName:
-    <p>$:newAndroidName&nbsp;&nbsp;<a href="$apkDwonpath"> 下载</a>&nbsp; <a href="http://192.168.0.213:8100/makeQR?data=$downUrl/$apkDwonpath"> 二维码</a></p>
+    <p>$:newAndroidName&nbsp;&nbsp;<a href="$apkDwonpath"> 下载</a>&nbsp; <a href="/makeQR?data=$downUrl/$apkDwonpath"> 二维码</a></p>
 $else:
     <p><img src="./static/img/xiaolian.jpg"><br/>暂时没有找到相关apk包，请稍后重试 ...</p>
     
 <br/>
-<h3>new ios</h3>
-$if newIosName:
-    <p>$:newIosName&nbsp;&nbsp;<a href="$iosDwonpath"> 下载</a>&nbsp; <a href="http://172.16.60.11:8100/makeQR?data=$downUrl/$iosDwonpath"> 二维码</a></p>
-$else:
-    <p><img src="./static/img/xiaolian.jpg"><br/>暂时没有找到相关apk包，请稍后重试 ...</p>
 
 <h2>其他版本客户端安装包</h2>
 <p><a href="./android">Android其他版客户端 </a>  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;   <a href="./ios">Ios其他版客户端 </a></p>
-    
+<br/>
+<h3>CJSJ_APP_User_token</h3>
+<p><a href="/tools/getCJSJToken.html"> CJSJ_APP_User_token</a></p>
+  
     
 </body>
 

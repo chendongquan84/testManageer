@@ -9,6 +9,8 @@ import web
 # import myloger
 import logging
 from other import fileManger
+from interface.getCJSJToken import *
+
 # from other.upload import *
 
 # from tools.tools import CourierDecrypt
@@ -74,11 +76,9 @@ class makeQR:
         imgDir = './static/img/tempimg.png'
         fileManger.makeQrcode(qrData, imgDir)
         return render.imgshow(qrData,imgDir)
-#class DecryptWeb:
-#    def GET(self):
-#        return render.DecryptWeb()
-        
-# CourierDecrypt = CourierDecrypt
+
+getToken = getToken
+CJSJToken = CJSJToken
 
 if __name__ == '__main__':
     
@@ -89,6 +89,8 @@ if __name__ == '__main__':
             "/ios/ver/(.*\d)","iosVer",
             "/login/(.*)",'login',
             "/makeQR","makeQR",
+            "/tools/getCJSJToken.html","getToken",
+            "/tools/CJSJ/getToken","CJSJToken"
 #            "/tools/CourierDecrypt","CourierDecrypt",
 #            "/tools/DecryptWeb","DecryptWeb"
 		)
